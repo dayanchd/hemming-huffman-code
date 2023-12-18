@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Hemming code</title>
+        <script>
+        function code(){
+            let inpText = document.getElementById('inpMessage').value;
+            inpText = inpText.split('');
+            for(let i = 0; i < inpText.length; i ++){
+                inpText[i] = parseInt(inpText[i]);
+            }
+            let cb1 = (inpText[0] + inpText[2] + inpText[3]) % 2;
+            let cb2 = (inpText[0] + inpText[1] + inpText[3]) % 2;
+            let cb3 = (inpText[2] + inpText[1] + inpText[3]) % 2;
+            document.getElementById('outputMessage').value = inpText.join('') + cb1 + cb2 + cb3;
+        }   
+            
+        function code2(){  
+            let inpText2 = document.getElementById('outputMessage').value;
+            inpText2 = inpText2.split('');
+            for(let i = 0; i < inpText2.length; i ++){
+                inpText2[i] = parseInt(inpText2[i]);
+            }
+            cb1 = inpText2[4];
+            cb2 = inpText2[5];
+            cb3 = inpText2[6];
+            if (((inpText2[1] + inpText2[2] + inpText2[3]) % 2 == cb3) && ((inpText2[0] + inpText2[1] + inpText2[3]) % 2 == cb2) && ((inpText2[0] + inpText2[2] + inpText2[3]) % 2 != cb1)){
+                if(inpText2[0] == 0){
+                    inpText2[0] = 1;
+                }
+                else{
+                    inpText2[0] = 0;
+                }
+            }
+            if (((inpText2[0] + inpText2[2] + inpText2[3]) % 2 == cb1) && ((inpText2[0] + inpText2[1] + inpText2[3]) % 2 == cb2) && ((inpText2[1] + inpText2[2] + inpText2[3]) % 2 != cb3)){
+                if(inpText2[1] == 0){
+                    inpText2[1] = 1;
+                }
+                else{
+                    inpText2[1] = 0;
+                }
+            }
+            if (((inpText2[0] + inpText2[2] + inpText2[3]) % 2 == cb1) && ((inpText2[2] + inpText2[1] + inpText2[3]) % 2 == cb3) && ((inpText2[0] + inpText2[1] + inpText2[3]) % 2 != cb2)){
+                if(inpText2[2] == 0){
+                    inpText2[2] = 1;
+                }
+                else{
+                    inpText2[2] = 0;
+                }
+            }
+            if (((inpText2[0] + inpText2[2] + inpText2[3]) % 2 != cb1) && ((inpText2[2] + inpText2[1] + inpText2[3]) % 2 != cb3) && ((inpText2[0] + inpText2[1] + inpText2[3]) % 2 != cb2)){
+                if(inpText2[3] == 0){
+                    inpText2[3] = 1;
+                }
+                else{
+                    inpText2[3] = 0;
+                }
+            }
+            document.getElementById('proverka').value = inpText2.slice(0,4).join('');
+        }
+        </script>
+    </head>
+    <body>
+    <h1>Manveiler, Hemming code</h1>
+    <p><input type='text' id ='inpMessage' /> input message, 4 bits</p>
+    <p><input type='button' value = 'Code' onclick='code()'/></p> 
+    <p><input type='text' id ='outputMessage' > coded message</p>
+    <p><input type='button' value = 'Check' onclick='code2()' /></p> 
+    <p><input type='text' id = 'proverka'/> original message</p>
+    <p></p>
+    </body>
+</html>

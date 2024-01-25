@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hemming Code</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <script defer src="./hemming.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Shaat, Hemming Code</h1>
+        </header>
+        <main class="main">
+            <div class="field">
+                <label for="input">Ввод:</label>
+                <input class="input" id="input" type="text" maxlength="4" pattern="^[0-1]{4}$" />
+            </div>
+            <button class="button" id="input-button">Добавить контрольные биты</button>
+            <div class="field">
+                <label for="coded">Кодированная:</label>
+                <input class="input" id="coded" type="text" maxlength="7" pattern="^[0-1]{7}$" />
+            </div>
+            <button class="button" id="fix-button">Исправить ошибку</button>
+            <div class="field">
+                <label for="fixed">Исправленная:</label>
+                <input class="input" id="fixed" type="text" maxlength=7 patterm="^[0-1]{7}$" disabled />
+            </div>
+            <div class="result __hidden" id="result__block">
+                <p id="result__text"></p>
+            </div>
+            <button class="button" id="reset-button">Сбросить</button>
+        </main>
+    </div>
+</body>
+
+</html>
